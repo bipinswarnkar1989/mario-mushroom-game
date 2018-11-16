@@ -162,7 +162,7 @@ class App extends Component {
     if (boardColumns != null) {
       const columns =  parseInt(boardColumns, 10);
       const boardLimit = this.state.rows * columns;
-      const mushroomBoxes = this.createToadBoxes(boardLimit, this.state.numberOfMushrooms);
+      const mushroomBoxes = this.createMushroomBoxes(boardLimit, this.state.numberOfMushrooms);
       const marioBox = mushroomBoxes.shift();
       this.setState({
         columns: columns,
@@ -174,12 +174,12 @@ class App extends Component {
     this.timer = setInterval(this.clock, 1000);
   }
     /**
-   * @method CreateToadBoxes
+   * @method createMushroomBoxes
    * @param {number} boardLimit The highest index any box can occupy on the game board.
    * @param {number} numberOfMushrooms The number of toads for Mario to catch on the game board.
    * @returns {number[]} An array of indexes occupied by the boxes with toads.
    */
-  createToadBoxes(boardLimit, numberOfMushrooms){
+  createMushroomBoxes(boardLimit, numberOfMushrooms){
     const mushroomBoxes = [];
     do{
       const boardIndex = Math.floor(Math.random() * boardLimit);
